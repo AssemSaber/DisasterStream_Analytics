@@ -1,0 +1,15 @@
+# sources.yml - defines INPUT locations
+version: 2
+            # it is much more useful when getting data from multiple schema
+            # {{source('raw_data','disaster_events')}} , which is inside stg_data_disaster
+            # it looks up all sources like raw_data
+sources:
+  - name: raw_data
+    database: disaster
+    schema: raw_data               
+    tables:
+      - name: disaster_events       # intermediate.inter_disaster
+        freshness:
+          warn_after: {count: 4, period: hour}
+          error_after: {count: 9, period: day}
+        loaded_at_field: to_timestamp(SOURCE_TIME_MS / 1000) # it is converted to >>now()-max(ingestion_time) 

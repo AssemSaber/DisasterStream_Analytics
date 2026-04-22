@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: stg_orders # you must write mode name here
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['pending', 'completed', 'cancelled']
+      
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('stg_customers')
+              field: id
+
+      - name: total_amount
+        tests:
+          - check_amount
+
+
+  - name: stg_order_items # you must write mode name here
+    columns:
+      - name: product_id
+        tests:
+          - relationships:
+              to: ref('stg_products')
+              field: category_id
+
+      - name: revenue
+        tests:
+          - check_amount
+
+  - name: stg_customers # you must write mode name here
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+
+
+
+  - name : stg_products
+    columns:
+      - name: category_id
+        tests:
+          - unique
+          - not_null
+
+      - name: category
+        tests:
+          - accepted_values:
+              values: ['Electronics', 'Furniture', 'Accessories']

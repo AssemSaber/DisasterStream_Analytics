@@ -1,0 +1,14 @@
+airflow_dbt_project:
+  target: postgres_dev  
+  
+  outputs:
+    postgres_dev:
+    ## postgre connection
+      type: postgres
+      host: postgres
+      user: airflow 
+      pass: airflow
+      port: 5432
+      dbname: disaster
+      schema: raw_data
+      threads: 1

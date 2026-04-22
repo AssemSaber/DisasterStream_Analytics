@@ -1,0 +1,12 @@
+# sources.yml - defines INPUT locations
+version: 2
+            # it is much more useful when getting data from multiple schema
+sources:
+  - name: raw_data
+    database: GP
+    schema: RAW               
+    tables:
+      - name: customers       # raw.customers
+      - name: orders         # raw.orders
+      - name: products       # raw.products
+      - name: order_items       # raw.products
