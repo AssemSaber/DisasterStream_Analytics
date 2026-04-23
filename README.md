@@ -109,3 +109,5 @@ CREATE TABLE disaster_data (
 | Kafka UI           | [http://localhost:8085](http://localhost:8085) |
 | NiFi               | [http://localhost:8086](http://localhost:8086) |
 | Grafana            | [http://localhost:3000](http://localhost:3000) |
+
+- **7) Go to NiFi and start all processors by right-clicking each one and selecting Start.**
