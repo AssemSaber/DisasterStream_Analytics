@@ -90,15 +90,21 @@ CREATE TABLE disaster_data (
     day INT
 );
 ```
+- #### **5) You need to upload the NiFi template.**
+- Open your browser and go to:
+   ```
+   http://localhost:8080
+   ```
+- #### From the left panel, click on "Upload Template".
+   The NiFi script is located in: ` /Nifi_script/Nifi_as_consumer`
 
- 
-- #### **5) You need to set up MySQL Connect to run that script, which allows you to import large amounts of data into MySQL**
+- #### **6) You need to set up MySQL Connect to run that script, which allows you to import large amounts of data into MySQL**
 
 ```
   pip install mysql-connector-python
 ```
 
-- **6 )Run that in order to import any number of rows as they come as a stream from the source.**
+- **7)Run that in order to import any number of rows as they come as a stream from the source.**
 ```
  python3 sparkJops/import_mysql.py
 ```
